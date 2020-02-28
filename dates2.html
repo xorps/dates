@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>DateTime</title>
+    </head>
+    <body>
+        <p>7 Days: <span id="_7days"></span></p>
+        <p>14 Days: <span id="_14days"></span></p>
+        <p>15 Days: <span id="_15days"></span></p>
+        <p>28 Days: <span id="_28days"></span></p>
+        <p>30 Days: <span id="_30days"></span></p>
+        <p>42 Days: <span id="_42days"></span></p>
+        <p>60 Days: <span id="_60days"></span></p>
+        <p>90 Days: <span id="_90days"></span></p>
+        <script>
+            (function() {
+                var nodes = [
+                    {node: document.querySelector('#_7days'), days: 7},
+                    {node: document.querySelector('#_14days'), days: 14},
+                    {node: document.querySelector('#_15days'), days: 15},
+                    {node: document.querySelector('#_28days'), days: 28},
+                    {node: document.querySelector('#_30days'), days: 30},
+                    {node: document.querySelector('#_42days'), days: 42},
+                    {node: document.querySelector('#_60days'), days: 60},
+                    {node: document.querySelector('#_90days'), days: 90}
+                ];
+
+                function date(days) {
+                    var d = new Date();
+                    d.setDate(d.getDate() + days);
+                    return d;
+                }
+
+                function dateString(date) {
+                    return new Intl.DateTimeFormat('en-US').format(date);
+                }
+
+                function render() {
+                    nodes.forEach(({node, days}) => {
+                        node.textContent = dateString(date(days));
+                    });
+
+                    window.requestAnimationFrame(render);
+                }
+
+                window.requestAnimationFrame(render);
+            })();
+        </script>
+    </body>
+</html>
