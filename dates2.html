@@ -36,10 +36,9 @@
                 }
 
                 function render() {
-                    nodes.forEach(({node, days}) => {
-                        node.textContent = dateString(date(days));
-                    });
-
+                    for (var i = 0; i < nodes.length; i++) {
+                        nodes[i].node.textContent = dateString(date(nodes[i].date));
+                    }
                     window.requestAnimationFrame(render);
                 }
 
