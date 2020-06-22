@@ -4,6 +4,8 @@
         <title>DateTime</title>
     </head>
     <body>
+        <p>Today's Date: <span id="today"></span></p>
+        <p>3 Days: <span id="_3days"></span></p>
         <p>7 Days: <span id="_7days"></span></p>
         <p>14 Days: <span id="_14days"></span></p>
         <p>15 Days: <span id="_15days"></span></p>
@@ -15,6 +17,8 @@
         <script>
             (function() {
                 var nodes = [
+                    {node: document.querySelector('#today'), days: 0},
+                    {node: document.querySelector('#_3days'), days: 3},
                     {node: document.querySelector('#_7days'), days: 7},
                     {node: document.querySelector('#_14days'), days: 14},
                     {node: document.querySelector('#_15days'), days: 15},
